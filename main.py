@@ -3,7 +3,11 @@ def main():
     text = open_file(book_path)
     word_count = count_words(text)
     character_count = count_characters(text)
-    print(character_count)
+    print(f"--- Begin report of {book_path} ---")
+    print(f"{word_count} words found in the document")
+    for char in character_count:
+        if char.isalpha():
+            print(f"The '{char}' character was found {character_count[char]} times")
 
 def open_file(path):
     with open(path) as f:
